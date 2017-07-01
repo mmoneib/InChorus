@@ -1,5 +1,7 @@
 package com.moneib.inchorus.domain;
 
-public class EventRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface EventRepository extends CrudRepository <Event, Long>{
 
 }
