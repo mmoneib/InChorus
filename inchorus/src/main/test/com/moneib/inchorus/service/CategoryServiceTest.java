@@ -22,14 +22,14 @@ public class CategoryServiceTest {
 	CategoryService categoryService;
 	Category newCategory;
 	long id;
-	
+
 	@Before
 	public void setUp() {
 
-		newCategory=new Category();
+		newCategory = new Category();
 		newCategory.setCategoryName("Inchorus");
 	}
-	
+
 	@Test
 	public void addCategory() {
 		Category category = categoryService.addCategory(newCategory);
@@ -43,7 +43,7 @@ public class CategoryServiceTest {
 	public void getCategoryByID() {
 		// add then update what was added .
 		Category category = categoryService.addCategory(newCategory);
-		id = category.getID();		
+		id = category.getID();
 		newCategory.setID(id);
 		Category getcategory = categoryService.getCategory(id);
 		assertEquals(id, getcategory.getID());
@@ -53,7 +53,7 @@ public class CategoryServiceTest {
 	@Test
 	public void updateCategory() {
 		Category category = categoryService.addCategory(newCategory);
-		id = category.getID();		
+		id = category.getID();
 		newCategory.setID(id);
 		newCategory.setCategoryName("Inchorus Update Category");
 
@@ -67,7 +67,7 @@ public class CategoryServiceTest {
 	@Test
 	public void deleteCategory() {
 		Category category = categoryService.addCategory(newCategory);
-		id = category.getID();	
+		id = category.getID();
 		categoryService.deleteCategory(id);
 	}
 
@@ -78,6 +78,5 @@ public class CategoryServiceTest {
 		int categorySize = categoryService.getAllCategory().size();
 		assertEquals(1, categorySize);
 	}
-
 
 }
