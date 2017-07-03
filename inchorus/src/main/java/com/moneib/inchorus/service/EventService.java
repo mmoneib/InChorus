@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.moneib.inchorus.domain.Event;
 import com.moneib.inchorus.domain.EventRepository;
-import com.moneib.inchorus.domain.User;
 
 @Component
 public class EventService {

@@ -23,7 +23,6 @@ public class EventServiceTest {
 	@Autowired
 	EventService eventService;
 	Event newEvent;
-	Event updateEvent;
 	Date eventDate = new Date();
 	long id;
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -41,7 +40,6 @@ public class EventServiceTest {
 	@Test
 	public void addEvent() {
 		Event event = eventService.addEvent(newEvent);
-		id = event.getID();
 		assertNotNull(event);
 		assertNotNull(event.getID());
 		assertNotEquals(0, event.getID());
