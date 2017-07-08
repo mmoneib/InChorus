@@ -38,9 +38,4 @@ public class CategoryService {
 
 	}
 
-	public void deleteAllCategory() {
-		categoryRepository.deleteAll();
-
-	}
-
 }
