@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "user")
@@ -26,8 +25,7 @@ public class User {
 	@Column(name = "Gender", nullable = true)
 	private String gender;
 
-//	@Column(name = "DateOfBirth", nullable = true)
-	@Transient
+	@Column(name = "DateOfBirth", nullable = true)
 	private Date dateOfBirth;
 
 	@Column(name = "UserStatus", nullable = true)

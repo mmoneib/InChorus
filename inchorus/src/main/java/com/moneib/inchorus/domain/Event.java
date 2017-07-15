@@ -16,13 +16,13 @@ public class Event {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long ID;
-	@Column(name = "Title", nullable = true)
+	@Column(name = "Title", nullable = false)
 	private String title;
 	@Column(name = "Location", nullable = true)
 	private String location;
 	@Column(name = "Content", nullable = true)
 	private String content;
-	@Column(name = "EventDate", nullable = true)
+	@Column(name = "EventDate", nullable = false)
 	private Date eventDate;
 
 	public long getID() {
