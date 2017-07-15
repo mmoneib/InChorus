@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Linux (x86_64)
 --
 -- Host: localhost    Database: inchorus
 -- ------------------------------------------------------
--- Server version	5.7.18-log
+-- Server version	5.7.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `category`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `category` (
   `ID` int(10) NOT NULL AUTO_INCREMENT,
-  `CategoryName` varchar(30) DEFAULT NULL,
+  `CategoryName` varchar(30) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -52,11 +52,11 @@ CREATE TABLE `event` (
   `Content` varchar(30) DEFAULT NULL,
   `CreationDate` date DEFAULT NULL,
   `StatusID` int(10) DEFAULT NULL,
-  `EventDate` date DEFAULT NULL,
+  `EventDate` datetime NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `StatusID` (`StatusID`),
   CONSTRAINT `event_ibfk_1` FOREIGN KEY (`StatusID`) REFERENCES `event_status` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,6 +65,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
+INSERT INTO `event` VALUES (1,'Inchorus Event','Shiekh Zayed','New Event Celebration',NULL,NULL,'2017-08-06 01:51:43');
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,9 +179,9 @@ DROP TABLE IF EXISTS `project`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `project` (
   `ID` int(10) NOT NULL AUTO_INCREMENT,
-  `Title` varchar(30) DEFAULT NULL,
-  `Content` varchar(30) DEFAULT NULL,
-  `Creation_Date` date DEFAULT NULL,
+  `title` varchar(30) NOT NULL,
+  `content` varchar(4096) NOT NULL,
+  `Creation_Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Start_Date` date DEFAULT NULL,
   `End_Date` date DEFAULT NULL,
   `StatusID` int(10) DEFAULT NULL,
@@ -335,7 +336,7 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `ID` int(10) NOT NULL AUTO_INCREMENT,
-  `UserName` varchar(30) DEFAULT NULL,
+  `UserName` varchar(3) NOT NULL,
   `Address` varchar(30) DEFAULT NULL,
   `Gender` varchar(30) DEFAULT NULL,
   `DateOfBirth` date DEFAULT NULL,
@@ -344,8 +345,9 @@ CREATE TABLE `user` (
   `Email` varchar(30) DEFAULT NULL,
   `CreationDate` date DEFAULT NULL,
   `Photo` longblob,
+  `Password` varchar(30) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -356,10 +358,6 @@ LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'inchorus'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -370,4 +368,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-09 14:59:51
+-- Dump completed on 2017-08-07 23:11:16

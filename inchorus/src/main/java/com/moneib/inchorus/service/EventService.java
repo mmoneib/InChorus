@@ -13,7 +13,6 @@ import com.moneib.inchorus.domain.EventRepository;
 public class EventService {
 
 	@Autowired
-
 	EventRepository eventRepository;
 
 	public List<Event> getAllEvents() {

@@ -1,5 +1,7 @@
 package com.moneib.inchorus.domain;
 
-public interface ProjectRepository{
+import org.springframework.data.repository.CrudRepository;
+
+public interface ProjectRepository extends CrudRepository<Project, Long> {
 
 }

@@ -1,12 +1,12 @@
 package com.moneib.inchorus.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.time.LocalDateTime;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +23,7 @@ public class EventServiceTest {
 	@Autowired
 	EventService eventService;
 	Event newEvent;
-	Date eventDate = new Date();
+	LocalDateTime eventDate = LocalDateTime.now();
 	long id;
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 

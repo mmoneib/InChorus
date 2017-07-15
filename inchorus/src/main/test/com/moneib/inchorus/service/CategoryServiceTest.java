@@ -73,7 +73,7 @@ public class CategoryServiceTest {
 
 	@Test
 	public void getAllCategory() {
-		categoryService.deleteAllCategory();
+		//categoryService.deleteAllCategory();
 		categoryService.addCategory(newCategory);
 		int categorySize = categoryService.getAllCategory().size();
 		assertEquals(1, categorySize);

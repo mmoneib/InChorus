@@ -16,16 +16,19 @@ public class Category {
 	private long ID;
 	@Column(name = "CategoryName", nullable = false)
 	private String categoryName;
-	
+
 	public long getID() {
 		return ID;
 	}
+
 	public void setID(long iD) {
 		ID = iD;
 	}
+
 	public String getCategoryName() {
 		return categoryName;
 	}
+
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}

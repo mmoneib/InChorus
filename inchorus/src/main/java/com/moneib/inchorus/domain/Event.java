@@ -1,6 +1,6 @@
 package com.moneib.inchorus.domain;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,14 +16,17 @@ public class Event {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long ID;
-	@Column(name = "Title", nullable = true)
+	@Column(name = "Title", nullable = false)
 	private String title;
 	@Column(name = "Location", nullable = true)
 	private String location;
 	@Column(name = "Content", nullable = true)
 	private String content;
-	@Column(name = "EventDate", nullable = true)
-	private Date eventDate;
+	/*LocalDateTime is used instead of ZonedDateTime as timezones are not stored as a time
+	 * component in MySQL. Hence, they must be stored separately as a String.
+	 */
+	@Column(name = "EventDate", nullable = false)	
+	private LocalDateTime eventDate;
 
 	public long getID() {
 		return ID;
@@ -57,11 +60,11 @@ public class Event {
 		this.content = content;
 	}
 
-	public Date getEventDate() {
+	public LocalDateTime getEventDate() {
 		return eventDate;
 	}
 
-	public void setEventDate(Date eventDate) {
+	public void setEventDate(LocalDateTime eventDate) {
 		this.eventDate = eventDate;
 	}
 
