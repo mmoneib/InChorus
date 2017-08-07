@@ -12,8 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.moneib.inchorus.domain.Category;
-import com.moneib.inchorus.domain.CategoryRepository;
-import com.moneib.inchorus.domain.Event;
 
 @RunWith(SpringRunner.class) // Needed to run the tests using SpringBoot.
 @SpringBootTest
